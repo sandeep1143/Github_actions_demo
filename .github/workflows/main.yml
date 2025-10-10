@@ -1,0 +1,13 @@
+name: Practice github actions
+on: [push, workflow_dispatch]
+jobs:
+  build:
+     runs-on: ubuntu-latest
+     steps:
+       - name: checkout repository
+         uses: actions/checkout@v4
+
+       - name: just printing
+         run: echo "This is my first github action"
+
+    
