@@ -11,6 +11,7 @@ jobs:
          run: echo "This is my first github action"
 
   test:
+    needs: build
     runs-on: ubuntu-latest
     steps:
        - name: checkout repository
