@@ -10,6 +10,17 @@ jobs:
        - name: just printing
          run: echo "This is my first github action"
 
+       - name: Create report
+         run: echo "This is new file" > sandy.txt
+
+       - name: upload it as artifact
+         uses: actions/upload-artifact@4
+         with:
+           name: sandy
+           path: sandy.txt
+
+        
+
   test:
     needs: build
     runs-on: ubuntu-latest
@@ -19,5 +30,13 @@ jobs:
 
        - name: just printing
          run: echo "This is 2nd job"
+
+       - name: download artifact
+         uses: actions/download-artifact@4
+         with:
+           name: sandy
+
+       - name: display artifact
+         run: cat sandy.txt
 
     
